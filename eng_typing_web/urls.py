@@ -16,7 +16,7 @@ Including another URLconf
 
 StartApp:
 
-python manage.py startapp
+python manage.py startapp <app_name>
 
 Activate and Run:
 
@@ -25,10 +25,18 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
 
+Create super user:
+python manage.py createsuperuser
+
 """
 from django.contrib import admin
 from django.urls import path
+from typing_page.views import typing_page, articles_list, article_detail
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("eng_typing/", typing_page),
+    path("", articles_list),
+    path("articles/", articles_list,name='articles'),
+    path("articles/detail/<int:id>", article_detail,name='article_detail')
 ]

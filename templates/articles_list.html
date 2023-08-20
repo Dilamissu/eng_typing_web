@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Articles</title>
+    </head>
+    <body>
+        {% for article in articles %}
+        <div>
+            <h3>
+                <a href="{% url 'article_detail' id=article.id %}">
+                    Article: {{article.title}} | Lenght: {{ article.length }}
+                </a>
+            </h3>
+        </div>
+        {% endfor %}
+    </body>
+</html>
